@@ -1,0 +1,290 @@
+/*---------------------------------------
+Author : Pascal Ablitzer
+Date : 2021-12-09
+
+-----------------------------------------*/
+/*--------------- Import --------------------------------------
+---------------------------------------------------------------*/
+/*---------------- fonts */
+@font-face {
+  font-family: 'Lato-Light';
+  src: url("/res/font/Lato-Light/Lato-Light.woff2") format("woff2"), url("/res/font/Lato-Light/Lato-Light.woff") format("woff"), url("/res/font/Lato-Light/Lato-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Lato-Bold';
+  src: url("/res/font/Lato-Bold/Lato-Bold.woff2") format("woff2"), url("/res/font/Lato-Bold/Lato-Bold.woff") format("woff"), url("/res/font/Lato-Bold/Lato-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Lato-Regular';
+  src: url("/res/font/Lato-Regular/Lato-Regular.woff2") format("woff2"), url("/res/font/Lato-Regular/Lato-Regular.woff") format("woff"), url("/res/font/Lato-Regular/Lato-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url("/res/font/Roboto-Regular/Roboto-Regular.woff2") format("woff2"), url("/res/font/Roboto-Regular/Roboto-Regular.woff") format("woff"), url("/res/font/Roboto-Regular/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Roboto-Italic';
+  src: url("/res/font/Roboto-Italic/Roboto-Italic.woff2") format("woff2"), url("/res/font/Roboto-Italic/Roboto-Italic.woff") format("woff"), url("/res/font/Roboto-Italic/Roboto-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url("/res/font/Roboto-Bold/Roboto-Bold.woff2") format("woff2"), url("/res/font/Roboto-Bold/Roboto-Bold.woff") format("woff"), url("/res/font/Roboto-Bold/Roboto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Trirong-BoldItalic';
+  src: url("/res/font/Trirong-BoldItalic/Trirong-BoldItalic.woff2") format("woff2"), url("/res/font/Trirong-BoldItalic/Trirong-BoldItalic.woff") format("woff"), url("/res/font/Trirong-BoldItalic/Trirong-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Trirong-Italic';
+  src: url("/res/font/Trirong-Italic/Trirong-Italic.woff2") format("woff2"), url("/res/font/Trirong-Italic/Trirong-Italic.woff") format("woff"), url("/res/font/Trirong-Italic/Trirong-Italic.ttf") format("truetype");
+}
+
+/*---------------- Reset css */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*--------------- Configuration variable ------------------------
+---------------------------------------------------------------*/
+/*--------------- Global Style --------------------------------
+---------------------------------------------------------------*/
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #1a1a1a;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 150%;
+}
+
+h1 {
+  font-family: "Trirong", serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 3em;
+}
+
+h2 {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 2em;
+}
+
+h3 {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*---------------- misc flex */
+/*--------------- Layout Style --------------------------------
+---------------------------------------------------------------*/
+/*---------------- Header */
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #003049;
+  padding: 2em 4em;
+  color: #f3f3f3;
+}
+
+/*---------------- Nav */
+nav ul li {
+  font-size: 1.2em;
+}
+
+@media screen and (min-width: 300px) {
+  nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  nav li {
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 0.5em 0.5em;
+  }
+  nav li a {
+    border-bottom: 2px solid transparent;
+    padding: 0.25em 0;
+  }
+  nav li a.current {
+    border-bottom: 2px solid #f77f00;
+    pointer-events: none;
+  }
+  nav li a:hover:not(.current) {
+    border-bottom: 2px solid #c7b241;
+    color: #c7b241;
+  }
+}
+
+/*---------------- Main */
+.banner {
+  background-image: url(/res/img/cor1.jpeg);
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*---------------- Aside */
+/*---------------- Footer */
+footer {
+  background-color: #003049;
+  color: #f3f3f3;
+}
+/*# sourceMappingURL=style.css.map */

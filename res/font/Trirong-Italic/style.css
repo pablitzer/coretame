@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Trirong-Italic';
+  src: url('/path-to/Trirong-Italic.woff2') format('woff2'),
+       url('/path-to/Trirong-Italic.woff') format('woff'),
+       url('/path-to/Trirong-Italic.ttf')  format('truetype');
+}
+
+body {
+  font-family: 'Trirong-Italic', sans-serif;
+}

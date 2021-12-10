@@ -1,0 +1,145 @@
+/*---------------------------------------
+Author : Pascal Ablitzer
+Date : 2021-12-09
+
+-----------------------------------------*/
+
+/*--------------- Import --------------------------------------
+---------------------------------------------------------------*/
+/*---------------- fonts */
+@import 'font';
+
+/*---------------- Reset css */
+
+@import 'reset';
+
+/*--------------- Configuration variable ------------------------
+---------------------------------------------------------------*/
+$col-dark: #003049;
+$col-light: #eae2b7;
+$col-brand: #d62828;
+$col-sec: #f77f00;
+$col-ter: #fcbf49;
+
+$col-txt: #1a1a1a;
+$col-txt-inv: #f3f3f3;
+
+$col-light-2: darken($col-light, 30%);
+
+$font-txt: 'Roboto', sans-serif;
+$font-level1: 'Trirong', serif;
+$font-level2: 'Lato', sans-serif;
+
+/*--------------- Global Style --------------------------------
+---------------------------------------------------------------*/
+body {
+  font-family: $font-txt;
+  font-weight: 400;
+  font-size: 16px;
+  color: $col-txt;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 150%;
+}
+
+h1 {
+  font-family: $font-level1;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 3em;
+}
+h2 {
+  font-family: $font-level2;
+  font-weight: 700;
+  font-size: 2em;
+}
+h3 {
+  font-family: $font-level2;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*---------------- misc flex */
+%flex-between-centered {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+%flex-arround-centered {
+  display: flex;
+  justify-content: space-arround;
+  align-items: center;
+}
+%flex-arround-wrap {
+  display: flex;
+  justify-content: space-arround;
+  flex-wrap: wrap;
+}
+/*--------------- Layout Style --------------------------------
+---------------------------------------------------------------*/
+
+/*---------------- Header */
+header {
+  display: flex;
+  background-color: $col-dark;
+  padding: 2em 4em;
+  color: $col-txt-inv;
+}
+
+/*---------------- Nav */
+
+nav ul li {
+  font-size: 1.2em;
+}
+@media screen and (min-width: 300px) {
+  nav ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  nav li {
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 0.5em 0.5em;
+  }
+  nav li a {
+    border-bottom: 2px solid transparent;
+    padding: 0.25em 0;
+  }
+
+  nav li a.current {
+    border-bottom: 2px solid $col-sec;
+    pointer-events: none;
+  }
+
+  nav li a:hover:not(.current) {
+    border-bottom: 2px solid $col-light-2;
+    color: $col-light-2;
+  }
+}
+
+/*---------------- Main */
+.banner {
+  background-image: url(/res/img/cor1.jpeg);
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*---------------- Aside */
+
+/*---------------- Footer */
+footer {
+  background-color: $col-dark;
+  color: $col-txt-inv;
+}
