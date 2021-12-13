@@ -30,6 +30,8 @@ $font-txt: 'Roboto', sans-serif;
 $font-level1: 'Trirong', serif;
 $font-level2: 'Lato', sans-serif;
 
+$breakpoint-res: 700px;
+
 /*--------------- Global Style --------------------------------
 ---------------------------------------------------------------*/
 body {
@@ -91,49 +93,175 @@ a {
 header {
   display: flex;
   background-color: $col-dark;
-  padding: 2em 4em;
+  height: 60px;
+  padding: 20px 10px;
   color: $col-txt-inv;
+  align-items: center;
 }
 
-/*---------------- Nav */
+/*---------------- Burger menu */
 
-nav ul li {
-  font-size: 1.2em;
+// menu burger toggle not visible
+.toggle {
+  display: none;
 }
-@media screen and (min-width: 300px) {
-  nav ul {
+
+// Burger menu
+.btn-menu {
+  position: absolute;
+  top: -22px;
+  right: 0;
+  cursor: pointer;
+  padding: 20px;
+  > span,
+  > span::before,
+  > span::after {
+    display: block;
+    width: 40px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: $col-txt-inv;
+    transition: all 0.3s ease-in-out;
+    z-index: 1100;
+  }
+  > span::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+  }
+  > span::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+  }
+
+  // effect on burger menu hover
+  &:hover {
+    > span::before {
+      transform: translateY(-3px);
+    }
+    > span::after {
+      transform: translateY(3px);
+    }
+  }
+}
+
+// burger menu toggle management
+.toggle:checked {
+  // transform burger menu => close button  when toggle checked
+
+  + .btn-menu > span {
+    background-color: transparent;
+  }
+  + .btn-menu > span::before {
+    transform: translateY(10px) rotate(45deg);
+  }
+  + .btn-menu > span::after {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+
+  // toggle associated menu visibility
+  ~ .menu {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1000;
+  }
+}
+
+// burger menu on large screen : not displayed
+@media screen and (min-width: $breakpoint-res) {
+  // buger menu not visible
+  .btn-menu {
+    visibility: hidden;
+
+    // set opacity for smooth transition on resize
+    > span::before,
+    > span::after {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+}
+
+//*---------------- Nav */
+nav {
+  position: relative;
+  flex-grow: 1;
+}
+
+// menu layout
+.menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $col-dark;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+
+  ul {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  nav li {
-    display: inline-block;
-    text-transform: uppercase;
-    padding: 0.5em 0.5em;
-  }
-  nav li a {
-    border-bottom: 2px solid transparent;
-    padding: 0.25em 0;
-  }
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    li {
+      font-size: 1.2em;
+      padding: 30px 20px;
+      text-transform: uppercase;
 
-  nav li a.current {
-    border-bottom: 2px solid $col-sec;
-    pointer-events: none;
+      a {
+        border-bottom: 2px solid transparent;
+        padding: 4px 0;
+        &.current {
+          border-bottom: 2px solid $col-sec;
+        }
+        &:hover:not(.current) {
+          border-bottom: 2px solid $col-light-2;
+          color: $col-light-2;
+        }
+      }
+    }
   }
+}
 
-  nav li a:hover:not(.current) {
-    border-bottom: 2px solid $col-light-2;
-    color: $col-light-2;
+// Plain menu when burger menu is not displayed
+@media screen and (min-width: $breakpoint-res) {
+  .menu {
+    display: flex;
+    justify-content: center;
+    position: initial;
+    visibility: visible;
+    opacity: 1;
+
+    ul {
+      display: flex;
+      //justify-content: space-around;
+      flex-direction: row;
+      flex-grow: 1;
+      li {
+        text-transform: initial;
+        padding: 20px 30px;
+      }
+    }
   }
 }
 
 /*---------------- Main */
 .banner {
   background-image: url(/res/img/cor1.jpeg);
-  height: 200px;
+  height: 300px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+/*---------------- Main */
+main .wrapper {
+  margin: 0px 20px;
 }
 
 /*---------------- Aside */
