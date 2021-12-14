@@ -53,7 +53,7 @@ h1 {
   font-family: $font-level1;
   font-style: italic;
   font-weight: 700;
-  font-size: 3em;
+  font-size: 2em;
 }
 h2 {
   font-family: $font-level2;
@@ -62,12 +62,29 @@ h2 {
 }
 h3 {
   font-family: $font-level2;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1.5em;
 }
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  background-color: $col-brand;
+}
+.btn-inv {
+  background-color: $col-light;
+  color: $col-brand;
+
+  &:hover {
+    color: $col-light;
+    background-color: $col-brand;
+  }
 }
 
 /*---------------- misc flex */
@@ -93,7 +110,7 @@ a {
 header {
   display: flex;
   background-color: $col-dark;
-  height: 60px;
+  height: 40px;
   padding: 20px 10px;
   color: $col-txt-inv;
   align-items: center;
@@ -254,14 +271,104 @@ nav {
 /*---------------- Main */
 .banner {
   background-image: url(/res/img/cor1.jpeg);
-  height: 300px;
+  height: 400px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+
+  color: $col-txt-inv;
+
+  .fader {
+    background-color: rgba($col-brand, 0.6);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+  }
+  .wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  p {
+    font-size: 1.2em;
+    text-shadow: #000 0 0 6px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-shadow: #000 0 0 6px;
+    text-align: center;
+  }
+  .btn {
+    position: absolute;
+    right: 0px;
+    bottom: 20px;
+  }
+}
+@media screen and (min-width: $breakpoint-res) {
+  // banner layout for large screens
+  .banner {
+    h1,
+    p {
+      text-align: center;
+    }
+  }
 }
 /*---------------- Main */
 main .wrapper {
   margin: 0px 20px;
+}
+
+section {
+  background-color: #fff;
+
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  h2 {
+    color: $col-brand;
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+    //flex-shrink: 0;
+  }
+
+  article {
+    width: 25%;
+  }
+  article .carte {
+    margin: 10px;
+    border-bottom: 1px solid lighten($col-txt, 80);
+    border-left: 1px solid lighten($col-txt, 80);
+    border-right: 1px solid lighten($col-txt, 80);
+    padding: 10px;
+  }
+
+  article:nth-of-type(3n) .carte {
+    border-top: 10px solid $col-ter;
+  }
+  article:nth-of-type(3n + 1) .carte {
+    border-top: 10px solid $col-sec;
+  }
+  article:nth-of-type(3n + 2) .carte {
+    border-top: 10px solid $col-light;
+  }
+}
+@media screen and (min-width: $breakpoint-res) {
+  section {
+    article {
+      width: 100%;
+    }
+  }
 }
 
 /*---------------- Aside */
