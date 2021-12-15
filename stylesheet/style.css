@@ -275,12 +275,33 @@ header {
   display: -ms-flexbox;
   display: flex;
   background-color: #003049;
-  height: 20px;
-  padding: 20px 10px;
+  height: 40px;
+  padding: 10px 10px;
   color: #f3f3f3;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+header .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .logo img {
+  max-width: 40px;
+  max-height: 40px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+header .logo img:hover {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 /*------------------------------------ Burger menu */
@@ -353,7 +374,7 @@ header {
   z-index: 1000;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 680px) {
   .btn-menu {
     visibility: hidden;
   }
@@ -429,7 +450,7 @@ nav {
   color: #fcbf49;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 680px) {
   .menu {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -509,7 +530,7 @@ nav {
   margin-top: 20px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 680px) {
   .banner h1,
   .banner p {
     text-align: center;
@@ -616,7 +637,7 @@ section .carte .btn {
   border: 1px solid #f77f00;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 680px) {
   section .carte {
     -ms-grid-columns: 1fr 3fr;
         grid-template-columns: 1fr 3fr;

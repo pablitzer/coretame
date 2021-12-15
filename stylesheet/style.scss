@@ -30,7 +30,7 @@ $font-txt: 'Roboto', sans-serif;
 $font-level1: 'Trirong', serif;
 $font-level2: 'Lato', sans-serif;
 
-$breakpoint-res: 600px;
+$breakpoint-res: 680px;
 $breakpoint-big-res: 900px;
 
 /*--------------- Global Style --------------------------------
@@ -136,10 +136,23 @@ a {
 header {
   display: flex;
   background-color: $col-dark;
-  height: 20px;
-  padding: 20px 10px;
+  height: 40px;
+  padding: 10px 10px;
   color: $col-txt-inv;
   align-items: center;
+  .logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      max-width: 40px;
+      max-height: 40px;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        transform: rotate(45deg);
+      }
+    }
+  }
 }
 
 /*------------------------------------ Burger menu */
