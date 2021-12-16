@@ -400,6 +400,7 @@ section {
     grid-template-columns: 1fr;
     grid-template-rows: 200px 2fr;
     background-color: $col-light;
+
     img {
       width: 100%;
       height: 100%;
@@ -485,4 +486,58 @@ section {
 footer {
   background-color: $col-dark;
   color: $col-txt-inv;
+  font-size: 0.8em;
+  display: grid;
+  grid-template-columns: 1fr;
+  .foot-head {
+    margin-top: 10px;
+    margin-left: 20px;
+    font-family: $font-level2;
+    font-weight: 200;
+    font-size: 1.2em;
+    margin-bottom: 4px;
+    text-align: center;
+    grid-area: head;
+  }
+
+  .block-title {
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-size: 1em;
+    font-family: $font-level2;
+    text-transform: uppercase;
+  }
+  .block-main {
+    margin-left: 40px;
+  }
+  .block-footer {
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+}
+@media screen and (min-width: $breakpoint-res) {
+  footer {
+    grid-template-columns: 1fr 2fr 1fr 2fr 1fr;
+    grid-template-areas:
+      'head head head head head'
+      '. title1 . title2 .'
+      '. main1  . main2  .';
+    .col-title {
+      &.col1 {
+        grid-area: title1;
+      }
+      &.col2 {
+        grid-area: title2;
+      }
+    }
+    .col-main {
+      margin-left: 20px;
+      &.col1 {
+        grid-area: main1;
+      }
+      &.col2 {
+        grid-area: main2;
+      }
+    }
+  }
 }
