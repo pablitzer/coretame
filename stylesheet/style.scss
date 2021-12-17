@@ -13,7 +13,7 @@ Date : 2021-12-09
 
 @import 'reset';
 
-/*--------------- Configuration variable ------------------------
+/*--------------- Configuration variables ------------------------
 ---------------------------------------------------------------*/
 $col-dark: #003049;
 $col-light: #eae2b7;
@@ -76,12 +76,16 @@ a {
   color: inherit;
 }
 
-.btn {
+%btn-common {
   display: inline-block;
   padding: 8px 15px;
-  border-radius: 5px;
+  border-radius: 2px;
   margin-bottom: 5px;
-
+  border: 1px solid $col-brand;
+}
+.btn {
+  @extend %btn-common;
+  border-color: $col-brand;
   background-color: $col-light;
   color: $col-brand;
 
@@ -89,6 +93,58 @@ a {
     color: $col-light;
     background-color: $col-brand;
   }
+}
+.btn-brand {
+  @extend %btn-common;
+  border-color: $col-light;
+  background-color: $col-brand;
+  color: $col-txt-inv;
+
+  &:hover {
+    color: $col-brand;
+    background-color: $col-light;
+  }
+}
+.btn-brand-tr {
+  @extend %btn-common;
+  border-color: $col-light;
+  background-color: rgba($col-brand, 0.8);
+  color: $col-txt-inv;
+
+  &:hover {
+    color: $col-brand;
+    background-color: $col-light;
+  }
+}
+
+/*---------------- slide effect */
+@keyframes slide-up {
+  0% {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(-30px);
+    opacity: 0.6;
+  }
+
+  80% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+}
+
+.slide {
+  font-size: 4em;
+  color: $col-txt-inv;
+  opacity: 0;
+  margin-top: 60px;
+  animation: 4s ease 2s 6 running slide-up;
 }
 
 /*---------------- misc flex */
@@ -108,7 +164,7 @@ a {
   flex-wrap: wrap;
 }
 
-/*--------------- event with icons */
+/*--------------- event data with icons */
 %icon-prop {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
@@ -309,8 +365,20 @@ nav {
 }
 
 //*----------------------------------- Banner */
+@keyframes anim-background {
+  0% {
+    background-position-y: -100vh;
+    background-size: cover;
+  }
+  100% {
+    background-position-y: 0vh;
+    background-size: cover;
+  }
+}
 .banner {
   background-image: url(/res/img/cor1.jpg);
+  background-color: $col-brand;
+  animation: 2s ease 0, 3s 1 running anim-background;
 
   background-position: center;
   background-repeat: no-repeat;
@@ -318,6 +386,7 @@ nav {
   background-position-x: center;
   background-position-y: center;
   position: relative;
+  height: calc(100vh - 60px);
 
   color: $col-txt-inv;
 
@@ -326,8 +395,15 @@ nav {
     display: flex;
     flex-direction: row;
     padding-bottom: 20px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
   }
   .wrapper {
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 100%;
   }
@@ -347,17 +423,31 @@ nav {
     margin-bottom: 20px;
   }
   .btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    flex-grow: 1;
     text-align: center;
-    margin-top: 20px;
+    //align-content: center;
+    .btn {
+      margin: auto;
+    }
   }
 }
 @media screen and (min-width: $breakpoint-res) {
   // banner layout for large screens
   .banner {
+    height: 400px;
+
     h1,
     p {
       text-align: center;
     }
+  }
+  .slide {
+    display: none;
   }
 }
 //*----------------------------------- Main content*/
@@ -366,18 +456,27 @@ main .wrapper {
 }
 
 section {
-  background-color: #fff;
+  background-color: $col-brand;
+  //margin-top: 40px;
 
   .wrapper {
     display: flex;
     flex-wrap: wrap;
+    align-items: stretch;
   }
 
   h2 {
-    color: $col-brand;
     text-align: center;
-    margin-top: 20px;
     width: 100%;
+    margin: 20px 10px 0 10px;
+    //background-color: $col-dark;
+    background-color: transparent;
+    //border-top: 1px solid darken($col-txt-inv, 30);
+    //border-bottom: 1px solid $col-txt-inv;
+    color: $col-txt-inv;
+    padding: 5px 0;
+    font-weight: 200;
+    font-size: 1.5em;
   }
 
   article {
@@ -392,10 +491,7 @@ section {
   }
 
   .carte {
-    margin: 10px;
-    border-bottom: 1px solid lighten($col-txt, 80);
-    border-left: 1px solid lighten($col-txt, 80);
-    border-right: 1px solid lighten($col-txt, 80);
+    margin: 20px 10px 0px 10px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 200px 2fr;
@@ -435,6 +531,9 @@ section {
       border: 1px solid $col-sec;
     }
   }
+  .btn-brand {
+    margin-top: 20px;
+  }
 }
 @media screen and (min-width: $breakpoint-res) {
   section {
@@ -457,8 +556,18 @@ section {
 }
 @media screen and (min-width: $breakpoint-big-res) {
   section {
+    h2 {
+      //margin: auto;
+      //flex-grow: 1;
+      width: 100%;
+      margin: 20px 10px 0 10px;
+    }
+
     article {
       width: 50%;
+      .carte {
+        min-height: 240px;
+      }
     }
   }
 }
@@ -467,15 +576,13 @@ section {
   width: 100%;
   margin: 10px;
 
-  .btn {
-    background-color: $col-brand;
-    background-color: $col-brand;
-    color: $col-txt-inv;
+  .btn-brand {
+    //color: $col-txt-inv;
     border-radius: 0;
     display: block;
     text-align: center;
     &:hover {
-      background-color: $col-ter;
+      background-color: $col-light;
       color: $col-brand;
     }
   }
