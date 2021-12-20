@@ -21,12 +21,10 @@ $col-brand: #d62828;
 $col-sec: #f77f00;
 $col-ter: #fcbf49;
 
-$col-txt: #1a1a1a;
-$col-txt-inv: #f3f3f3;
+$col-black: #1a1a1a;
+$col-white: #f3f3f3;
 
-$col-light-2: darken($col-light, 30%);
-
-$font-txt: 'Roboto', sans-serif;
+$font-common: 'Roboto', sans-serif;
 $font-level1: 'Trirong', serif;
 $font-level2: 'Lato', sans-serif;
 
@@ -36,10 +34,10 @@ $breakpoint-big-res: 900px;
 /*--------------- Global Style --------------------------------
 ---------------------------------------------------------------*/
 body {
-  font-family: $font-txt;
+  font-family: $font-common;
   font-weight: 400;
   font-size: 16px;
-  color: $col-txt;
+  color: $col-black;
   line-height: 1.5;
 }
 
@@ -96,24 +94,25 @@ a {
 }
 .btn-brand {
   @extend %btn-common;
-  border-color: $col-light;
+  border-color: darken($col-white, 40);
   background-color: $col-brand;
-  color: $col-txt-inv;
+  color: darken($col-white, 20);
 
   &:hover {
     color: $col-brand;
     background-color: $col-light;
   }
 }
-.btn-brand-tr {
+.btn-dark {
   @extend %btn-common;
-  border-color: $col-light;
-  background-color: rgba($col-brand, 0.8);
-  color: $col-txt-inv;
+  border-color: $col-brand;
+  background-color: $col-dark;
+  color: $col-ter;
 
   &:hover {
-    color: $col-brand;
-    background-color: $col-light;
+    color: $col-dark;
+    border-color: $col-brand;
+    background-color: $col-ter;
   }
 }
 
@@ -141,27 +140,13 @@ a {
 
 .slide {
   font-size: 4em;
-  color: $col-txt-inv;
+  color: $col-white;
   opacity: 0;
   margin-top: 60px;
   animation: 4s ease 2s 6 running slide-up;
-}
-
-/*---------------- misc flex */
-%flex-between-centered {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-%flex-arround-centered {
-  display: flex;
-  justify-content: space-arround;
-  align-items: center;
-}
-%flex-arround-wrap {
-  display: flex;
-  justify-content: space-arround;
-  flex-wrap: wrap;
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
 }
 
 /*--------------- event data with icons */
@@ -194,7 +179,7 @@ header {
   background-color: $col-dark;
   height: 40px;
   padding: 10px 10px;
-  color: $col-txt-inv;
+  color: $col-white;
   align-items: center;
   .logo {
     display: flex;
@@ -234,7 +219,7 @@ header {
     height: 0px;
     padding: 2px 0;
     border-radius: 5px;
-    background-color: $col-txt-inv;
+    background-color: $col-white;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
   }
@@ -377,21 +362,20 @@ nav {
 }
 .banner {
   background-image: url(/res/img/cor1.jpg);
-  background-color: $col-brand;
-  animation: 2s ease 0, 3s 1 running anim-background;
+  background-color: $col-dark;
+  animation: 5s ease-iout 0, 3s 1 running anim-background;
 
-  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   background-position-x: center;
-  background-position-y: center;
   position: relative;
   height: calc(100vh - 60px);
 
-  color: $col-txt-inv;
+  color: $col-white;
 
   .fader {
-    background-color: rgba($col-brand, 0.4);
+    background-color: rgba($col-black, 0.1);
     display: flex;
     flex-direction: row;
     padding-bottom: 20px;
@@ -406,6 +390,19 @@ nav {
     flex-direction: column;
     position: relative;
     width: 100%;
+    justify-content: space-between;
+  }
+  .text-container {
+    background-color: rgba($col-brand, 0.95);
+    margin: 20px 10vw;
+    padding: 20px;
+  }
+  .slide-container {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   p,
   h1 {
@@ -414,12 +411,13 @@ nav {
   }
 
   p {
-    font-size: 1.2em;
+    font-size: 1em;
     margin-bottom: 20px;
     font-family: $font-level2;
+    font-weight: 200;
   }
   h1 {
-    margin-top: 20px;
+    margin-top: 5vh;
     margin-bottom: 20px;
   }
   .btn-container {
@@ -430,7 +428,6 @@ nav {
 
     flex-grow: 1;
     text-align: center;
-    //align-content: center;
     .btn {
       margin: auto;
     }
@@ -439,7 +436,8 @@ nav {
 @media screen and (min-width: $breakpoint-res) {
   // banner layout for large screens
   .banner {
-    height: 400px;
+    height: 50vh;
+    min-height: 400px;
 
     h1,
     p {
@@ -456,8 +454,7 @@ main .wrapper {
 }
 
 section {
-  background-color: $col-brand;
-  //margin-top: 40px;
+  background-color: $col-dark;
 
   .wrapper {
     display: flex;
@@ -469,11 +466,8 @@ section {
     text-align: center;
     width: 100%;
     margin: 20px 10px 0 10px;
-    //background-color: $col-dark;
     background-color: transparent;
-    //border-top: 1px solid darken($col-txt-inv, 30);
-    //border-bottom: 1px solid $col-txt-inv;
-    color: $col-txt-inv;
+    color: $col-white;
     padding: 5px 0;
     font-weight: 200;
     font-size: 1.5em;
@@ -483,15 +477,15 @@ section {
     width: 100%;
   }
 
-  article:nth-of-type(2n) .carte {
+  article:nth-of-type(2n) .card {
     border-top: 20px solid $col-ter;
   }
-  article:nth-of-type(2n + 1) .carte {
+  article:nth-of-type(2n + 1) .card {
     border-top: 20px solid $col-sec;
   }
 
-  .carte {
-    margin: 20px 10px 0px 10px;
+  .card {
+    margin: 20px 20px 0px 20px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 200px 2fr;
@@ -537,7 +531,7 @@ section {
 }
 @media screen and (min-width: $breakpoint-res) {
   section {
-    .carte {
+    .card {
       grid-template-columns: 1fr 3fr;
       grid-template-rows: 1fr;
       .info {
@@ -557,34 +551,26 @@ section {
 @media screen and (min-width: $breakpoint-big-res) {
   section {
     h2 {
-      //margin: auto;
-      //flex-grow: 1;
       width: 100%;
       margin: 20px 10px 0 10px;
     }
 
     article {
       width: 50%;
-      .carte {
+      .card {
         min-height: 240px;
       }
     }
   }
 }
 
-.link {
+.full-width-container {
   width: 100%;
-  margin: 10px;
+  margin: 10px 20px;
 
   .btn-brand {
-    //color: $col-txt-inv;
-    border-radius: 0;
     display: block;
     text-align: center;
-    &:hover {
-      background-color: $col-light;
-      color: $col-brand;
-    }
   }
 }
 /*---------------- Aside */
@@ -592,59 +578,56 @@ section {
 /*---------------- Footer */
 footer {
   background-color: $col-dark;
-  color: $col-txt-inv;
+  color: darken($col-white, 40);
   font-size: 0.8em;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-bottom: 10px;
+
+  .highlight {
+    color: $col-white;
+  }
   .foot-head {
-    margin-top: 10px;
-    margin-left: 20px;
+    margin: 10px 20px 10px 20px;
     font-family: $font-level2;
     font-weight: 200;
-    font-size: 1.2em;
-    margin-bottom: 4px;
+    font-size: 1em;
     text-align: center;
     grid-area: head;
+    width: 100%;
+  }
+  .foot-column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
   }
 
-  .block-title {
-    margin-bottom: 10px;
-    margin-left: 20px;
-    font-size: 1em;
+  .col-title {
+    font-size: 0.9em;
     font-family: $font-level2;
     text-transform: uppercase;
-  }
-  .block-main {
-    margin-left: 40px;
-  }
-  .block-footer {
+    text-align: center;
     margin-top: 10px;
-    margin-left: 20px;
+  }
+  .col-main {
+    align-self: center;
+    p {
+      text-align: left;
+      &.centered {
+        text-align: center;
+      }
+    }
   }
 }
 @media screen and (min-width: $breakpoint-res) {
   footer {
-    grid-template-columns: 1fr 2fr 1fr 2fr 1fr;
-    grid-template-areas:
-      'head head head head head'
-      '. title1 . title2 .'
-      '. main1  . main2  .';
-    .col-title {
-      &.col1 {
-        grid-area: title1;
-      }
-      &.col2 {
-        grid-area: title2;
-      }
+    .foot-column {
+      width: 50%;
     }
-    .col-main {
-      margin-left: 20px;
-      &.col1 {
-        grid-area: main1;
-      }
-      &.col2 {
-        grid-area: main2;
-      }
+    .col-title {
+      text-align: center;
     }
   }
 }

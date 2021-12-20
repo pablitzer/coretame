@@ -231,7 +231,7 @@ a {
   color: inherit;
 }
 
-.btn, .btn-brand, .btn-brand-tr {
+.btn, .btn-brand, .btn-dark {
   display: inline-block;
   padding: 8px 15px;
   border-radius: 2px;
@@ -251,9 +251,9 @@ a {
 }
 
 .btn-brand {
-  border-color: #eae2b7;
+  border-color: #8d8d8d;
   background-color: #d62828;
-  color: #f3f3f3;
+  color: silver;
 }
 
 .btn-brand:hover {
@@ -261,15 +261,16 @@ a {
   background-color: #eae2b7;
 }
 
-.btn-brand-tr {
-  border-color: #eae2b7;
-  background-color: rgba(214, 40, 40, 0.8);
-  color: #f3f3f3;
+.btn-dark {
+  border-color: #d62828;
+  background-color: #003049;
+  color: #fcbf49;
 }
 
-.btn-brand-tr:hover {
-  color: #d62828;
-  background-color: #eae2b7;
+.btn-dark:hover {
+  color: #003049;
+  border-color: #d62828;
+  background-color: #fcbf49;
 }
 
 /*---------------- slide effect */
@@ -325,9 +326,11 @@ a {
   margin-top: 60px;
   -webkit-animation: 4s ease 2s 6 running slide-up;
           animation: 4s ease 2s 6 running slide-up;
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
 }
 
-/*---------------- misc flex */
 /*--------------- event data with icons */
 .evt-date::before, .evt-where::before {
   font-family: 'Font Awesome 5 Free';
@@ -586,21 +589,20 @@ nav {
 
 .banner {
   background-image: url(/res/img/cor1.jpg);
-  background-color: #d62828;
-  -webkit-animation: 2s ease 0, 3s 1 running anim-background;
-          animation: 2s ease 0, 3s 1 running anim-background;
-  background-position: center;
+  background-color: #003049;
+  -webkit-animation: 5s ease-iout 0, 3s 1 running anim-background;
+          animation: 5s ease-iout 0, 3s 1 running anim-background;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   background-position-x: center;
-  background-position-y: center;
   position: relative;
   height: calc(100vh - 60px);
   color: #f3f3f3;
 }
 
 .banner .fader {
-  background-color: rgba(214, 40, 40, 0.4);
+  background-color: rgba(26, 26, 26, 0.1);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -626,6 +628,29 @@ nav {
           flex-direction: column;
   position: relative;
   width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.banner .text-container {
+  background-color: rgba(214, 40, 40, 0.95);
+  margin: 20px 10vw;
+  padding: 20px;
+}
+
+.banner .slide-container {
+  width: 100%;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .banner p,
@@ -635,13 +660,14 @@ nav {
 }
 
 .banner p {
-  font-size: 1.2em;
+  font-size: 1em;
   margin-bottom: 20px;
   font-family: "Lato", sans-serif;
+  font-weight: 200;
 }
 
 .banner h1 {
-  margin-top: 20px;
+  margin-top: 5vh;
   margin-bottom: 20px;
 }
 
@@ -671,7 +697,8 @@ nav {
 
 @media screen and (min-width: 680px) {
   .banner {
-    height: 400px;
+    height: 50vh;
+    min-height: 400px;
   }
   .banner h1,
   .banner p {
@@ -687,7 +714,7 @@ main .wrapper {
 }
 
 section {
-  background-color: #d62828;
+  background-color: #003049;
 }
 
 section .wrapper {
@@ -716,16 +743,16 @@ section article {
   width: 100%;
 }
 
-section article:nth-of-type(2n) .carte {
+section article:nth-of-type(2n) .card {
   border-top: 20px solid #fcbf49;
 }
 
-section article:nth-of-type(2n + 1) .carte {
+section article:nth-of-type(2n + 1) .card {
   border-top: 20px solid #f77f00;
 }
 
-section .carte {
-  margin: 20px 10px 0px 10px;
+section .card {
+  margin: 20px 20px 0px 20px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
@@ -735,7 +762,7 @@ section .carte {
   background-color: #eae2b7;
 }
 
-section .carte img {
+section .card img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -744,11 +771,11 @@ section .carte img {
      object-position: 50% 50%;
 }
 
-section .carte .info {
+section .card .info {
   padding: 10px;
 }
 
-section .carte .info-detail {
+section .card .info-detail {
   margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -759,23 +786,23 @@ section .carte .info-detail {
           flex-direction: column;
 }
 
-section .carte h3 {
+section .card h3 {
   font-size: 1em;
   text-align: center;
 }
 
-section .carte h4 {
+section .card h4 {
   font-size: 1em;
   font-weight: 200;
   margin-bottom: 10px;
   text-align: center;
 }
 
-section .carte p {
+section .card p {
   font-size: 0.8em;
 }
 
-section .carte .btn {
+section .card .btn {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -791,22 +818,22 @@ section .btn-brand {
 }
 
 @media screen and (min-width: 680px) {
-  section .carte {
+  section .card {
     -ms-grid-columns: 1fr 3fr;
         grid-template-columns: 1fr 3fr;
     -ms-grid-rows: 1fr;
         grid-template-rows: 1fr;
   }
-  section .carte .info {
+  section .card .info {
     padding: 10px;
   }
-  section .carte .btn {
+  section .card .btn {
     -ms-flex-item-align: start;
         align-self: flex-start;
     margin-top: 20px;
   }
-  section .carte h3,
-  section .carte h4 {
+  section .card h3,
+  section .card h4 {
     text-align: left;
   }
 }
@@ -819,95 +846,91 @@ section .btn-brand {
   section article {
     width: 50%;
   }
-  section article .carte {
+  section article .card {
     min-height: 240px;
   }
 }
 
-.link {
+.full-width-container {
   width: 100%;
-  margin: 10px;
+  margin: 10px 20px;
 }
 
-.link .btn-brand {
-  border-radius: 0;
+.full-width-container .btn-brand {
   display: block;
   text-align: center;
-}
-
-.link .btn-brand:hover {
-  background-color: #eae2b7;
-  color: #d62828;
 }
 
 /*---------------- Aside */
 /*---------------- Footer */
 footer {
   background-color: #003049;
-  color: #f3f3f3;
+  color: #8d8d8d;
   font-size: 0.8em;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-bottom: 10px;
+}
+
+footer .highlight {
+  color: #f3f3f3;
 }
 
 footer .foot-head {
-  margin-top: 10px;
-  margin-left: 20px;
+  margin: 10px 20px 10px 20px;
   font-family: "Lato", sans-serif;
   font-weight: 200;
-  font-size: 1.2em;
-  margin-bottom: 4px;
+  font-size: 1em;
   text-align: center;
   grid-area: head;
+  width: 100%;
 }
 
-footer .block-title {
-  margin-bottom: 10px;
-  margin-left: 20px;
-  font-size: 1em;
+footer .foot-column {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-items: center;
+}
+
+footer .col-title {
+  font-size: 0.9em;
   font-family: "Lato", sans-serif;
   text-transform: uppercase;
-}
-
-footer .block-main {
-  margin-left: 40px;
-}
-
-footer .block-footer {
+  text-align: center;
   margin-top: 10px;
-  margin-left: 20px;
+}
+
+footer .col-main {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+footer .col-main p {
+  text-align: left;
+}
+
+footer .col-main p.centered {
+  text-align: center;
 }
 
 @media screen and (min-width: 680px) {
-  footer {
-    -ms-grid-columns: 1fr 2fr 1fr 2fr 1fr;
-        grid-template-columns: 1fr 2fr 1fr 2fr 1fr;
-        grid-template-areas: 'head head head head head' '. title1 . title2 .' '. main1  . main2  .';
+  footer .foot-column {
+    width: 50%;
   }
-  footer .col-title.col1 {
-    -ms-grid-row: 2;
-    -ms-grid-column: 2;
-    grid-area: title1;
-  }
-  footer .col-title.col2 {
-    -ms-grid-row: 2;
-    -ms-grid-column: 4;
-    grid-area: title2;
-  }
-  footer .col-main {
-    margin-left: 20px;
-  }
-  footer .col-main.col1 {
-    -ms-grid-row: 3;
-    -ms-grid-column: 2;
-    grid-area: main1;
-  }
-  footer .col-main.col2 {
-    -ms-grid-row: 3;
-    -ms-grid-column: 4;
-    grid-area: main2;
+  footer .col-title {
+    text-align: center;
   }
 }
 /*# sourceMappingURL=style.css.map */
