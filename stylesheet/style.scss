@@ -103,51 +103,6 @@ a {
     background-color: $col-light;
   }
 }
-.btn-dark {
-  @extend %btn-common;
-  border-color: $col-brand;
-  background-color: $col-dark;
-  color: $col-ter;
-
-  &:hover {
-    color: $col-dark;
-    border-color: $col-brand;
-    background-color: $col-ter;
-  }
-}
-
-/*---------------- slide effect */
-@keyframes slide-up {
-  0% {
-    transform: translateY(0px);
-    opacity: 0;
-  }
-
-  50% {
-    transform: translateY(-30px);
-    opacity: 0.6;
-  }
-
-  80% {
-    transform: translateY(-30px);
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(0px);
-  }
-}
-
-.slide {
-  font-size: 4em;
-  color: $col-white;
-  opacity: 0;
-  margin-top: 60px;
-  animation: 4s ease 2s 6 running slide-up;
-  display: inline-block;
-  position: absolute;
-  bottom: 0;
-}
 
 /*--------------- event data with icons */
 %icon-prop {
@@ -189,9 +144,15 @@ header {
       max-width: 40px;
       max-height: 40px;
       transition: all 0.3s ease-in-out;
-      &:hover {
+    }
+    &:hover {
+      img {
         transform: rotate(45deg);
       }
+    }
+    figcaption {
+      margin-left: 0.5em;
+      font-family: $font-level1;
     }
   }
 }
@@ -350,30 +311,66 @@ nav {
 }
 
 //*----------------------------------- Banner */
+
+// encourage to slide effect
+@keyframes slide-up {
+  0% {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(-30px);
+    opacity: 0.6;
+  }
+
+  80% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+}
+
+.slide {
+  font-size: 4em;
+  color: $col-white;
+  opacity: 0;
+  margin-top: 60px;
+  animation: 4s ease 2s 6 running slide-up;
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+}
+
+// Background anamation effect
 @keyframes anim-background {
   0% {
     background-position-y: -100vh;
-    background-size: cover;
   }
   100% {
     background-position-y: 0vh;
-    background-size: cover;
   }
 }
+
+// banner layout
 .banner {
+  color: $col-white;
+
+  // background image
   background-image: url(/res/img/cor1.jpg);
   background-color: $col-dark;
   animation: 5s ease-iout 0, 3s 1 running anim-background;
-
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-position-x: center;
   position: relative;
   height: calc(100vh - 60px);
 
-  color: $col-white;
-
+  // opacify image container
   .fader {
     background-color: rgba($col-black, 0.1);
     display: flex;
@@ -385,6 +382,7 @@ nav {
     left: 0px;
     right: 0px;
   }
+  // banner content
   .wrapper {
     display: flex;
     flex-direction: column;
@@ -529,6 +527,8 @@ section {
     margin-top: 20px;
   }
 }
+
+// for bigger screen : change card orientation
 @media screen and (min-width: $breakpoint-res) {
   section {
     .card {
@@ -548,6 +548,7 @@ section {
     }
   }
 }
+// for biggest screen : diplay two cards per line
 @media screen and (min-width: $breakpoint-big-res) {
   section {
     h2 {
@@ -613,10 +614,13 @@ footer {
   }
   .col-main {
     align-self: center;
-    p {
+    li {
       text-align: left;
       &.centered {
         text-align: center;
+      }
+      i {
+        color: $col-ter;
       }
     }
   }

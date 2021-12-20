@@ -7,7 +7,7 @@
     <title>Cors & âme - Association pour la promotion du cor</title>
     <meta
       name="description"
-      content="Association Cors et Âmes. Promotion de la pratique du cor."
+      content="Cors et Âmes est une association ayant pour but la promotion du cor."
     />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -22,9 +22,10 @@
   <body>
     <header>
       <a href="/" class="brand">
-        <div class="logo">
+        <figure class="logo">
           <img src="/res/icon/cor3-64.png" alt="Cors & Âmes - Accueil" />
-        </div>
+          <figcaption>Cors&Âme</figcaption>
+        </figure>
       </a>
       <nav>
         <input type="checkbox" name="toggle" id="toggle" class="toggle" />
@@ -32,7 +33,7 @@
         <div class="menu">
           <ul>
             <li><a href="#" class="current">Accueil</a></li>
-            <li><a href="#">Qui sommes-nous?</a></li>
+            <li><a href="association/qui-sommes-nous.html">Qui sommes-nous?</a></li>
             <li><a href="#">Agenda</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
@@ -58,7 +59,7 @@
           </div>
         </div>
       </div>
-      <section class="alternate" id="actualite">
+      <section>
         <div class="wrapper">
           <h2>Notre Actualité</h2>
 
@@ -186,7 +187,7 @@
     <footer>
       <div class="foot-head">
         <p>
-          © 2021 <span class="highlight">Cors & Âme</span> - Association pour la
+          © 2021 <span class="highlight">Cors&Âme</span> - Association pour la
           promotion du cor
         </p>
       </div>
@@ -194,21 +195,22 @@
         <div class="col-title highlight">
           <p>Retrouver nous sur :</p>
         </div>
-        <div class="col-main">
-          <p><i class="fab fa-facebook"></i> Facebook</p>
-          <p><i class="fab fa-twitter"></i> Twitter</p>
-          <p><i class="fab fa-youtube"></i> YouTube</p>
-        </div>
+        <ul class="col-main">
+          <li><a href="#"><i class="fab fa-facebook"></i></> Facebook</a></li>
+          <li><a href="#"></a><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="#"></a><i class="fab fa-youtube"></i> YouTube</a></li>
+        </ul>
       </div>
       <div class="foot-column">
         <div class="col-title highlight">
           <p>Informations</p>
         </div>
-        <div class="col-main">
-          <p class="centered">Politique de confidentialité</p>
-          <p class="centered">Mentions légales</p>
-          <p class="centered">Informations pratiques</p>
-        </div>
+        <ul class="col-main">
+          <li class="centered"><a href="#">Politique de confidentialité</a></li>
+          <li class="centered"><a href="#">Mentions légales</a></li>
+          <li class="centered"><a href="#">Informations pratiques</a></li>
+          <li class="centered"><a href="#">Nous contacter</a></li>
+        </ul>
       </div>
     </footer>
   </body>
