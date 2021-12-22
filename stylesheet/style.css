@@ -190,8 +190,9 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
-  color: #1a1a1a;
+  color: #f3f3f3;
   line-height: 1.5;
+  background-color: #003049;
 }
 
 h1,
@@ -231,7 +232,7 @@ a {
   color: inherit;
 }
 
-.btn, .btn-brand {
+.btn, .btn-prim {
   display: inline-block;
   padding: 8px 15px;
   border-radius: 2px;
@@ -250,15 +251,16 @@ a {
   background-color: #d62828;
 }
 
-.btn-brand {
+.btn-prim {
   border-color: #8d8d8d;
   background-color: #d62828;
   color: silver;
 }
 
-.btn-brand:hover {
-  color: #d62828;
-  background-color: #eae2b7;
+.btn-prim:hover {
+  background-color: transparent;
+  border-color: #d62828;
+  color: #f3f3f3;
 }
 
 /*--------------- event data with icons */
@@ -391,7 +393,7 @@ header .logo figcaption {
 .toggle:checked ~ .menu {
   visibility: visible;
   opacity: 1;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 @media screen and (min-width: 680px) {
@@ -451,8 +453,8 @@ nav {
 }
 
 .menu ul li {
-  font-size: 1.2em;
-  padding: 30px 20px;
+  font-size: 1.1em;
+  padding: 30px 0px;
   text-transform: uppercase;
 }
 
@@ -496,7 +498,7 @@ nav {
   }
   .menu ul li {
     text-transform: initial;
-    padding: 20px 30px;
+    padding: 0px 30px;
   }
 }
 
@@ -509,7 +511,7 @@ nav {
   50% {
     -webkit-transform: translateY(-30px);
             transform: translateY(-30px);
-    opacity: 0.6;
+    opacity: 0.5;
   }
   80% {
     -webkit-transform: translateY(-30px);
@@ -532,7 +534,7 @@ nav {
   50% {
     -webkit-transform: translateY(-30px);
             transform: translateY(-30px);
-    opacity: 0.6;
+    opacity: 0.5;
   }
   80% {
     -webkit-transform: translateY(-30px);
@@ -551,55 +553,94 @@ nav {
   color: #f3f3f3;
   opacity: 0;
   margin-top: 60px;
-  -webkit-animation: 4s ease 2s 6 running slide-up;
-          animation: 4s ease 2s 6 running slide-up;
   display: inline-block;
   position: absolute;
   bottom: 0;
+  -webkit-animation: 4s ease 3s 6 running slide-up;
+          animation: 4s ease 3s 6 running slide-up;
 }
 
 @-webkit-keyframes anim-background {
   0% {
-    background-position-y: -100vh;
+    -webkit-transform: translateY(-100vh);
+            transform: translateY(-100vh);
   }
   100% {
-    background-position-y: 0vh;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 
 @keyframes anim-background {
   0% {
-    background-position-y: -100vh;
+    -webkit-transform: translateY(-100vh);
+            transform: translateY(-100vh);
   }
   100% {
-    background-position-y: 0vh;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 
-.banner {
-  color: #f3f3f3;
-  background-image: url(/res/img/cor1.jpg);
+@-webkit-keyframes anim-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes anim-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-color: #003049;
-  -webkit-animation: 5s ease-iout 0, 3s 1 running anim-background;
-          animation: 5s ease-iout 0, 3s 1 running anim-background;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: scroll;
   background-position-x: center;
-  position: relative;
-  height: calc(100vh - 60px);
 }
 
-.banner .fader {
-  background-color: rgba(26, 26, 26, 0.1);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  padding-bottom: 20px;
+.background.bi1 {
+  background-image: url(/res/img/cor1-gs.jpg);
+}
+
+.background.bi1.anim {
+  -webkit-animation: 3s ease-out 0s 1 running anim-background;
+          animation: 3s ease-out 0s 1 running anim-background;
+}
+
+.background.bi2 {
+  background-image: url(/res/img/cor8-gs.jpg);
+}
+
+.background.bi2.anim {
+  -webkit-animation: 1s ease-in-out 0s 1 running anim-fade;
+          animation: 1s ease-in-out 0s 1 running anim-fade;
+}
+
+.banner {
+  color: #f3f3f3;
+  overflow: hidden;
+  position: relative;
+  height: calc(100vh - 60px);
+  min-height: 320px;
+}
+
+.banner .overlay {
+  background-color: rgba(26, 26, 26, 0.25);
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -615,15 +656,13 @@ nav {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: relative;
-  width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
 
 .banner .text-container {
-  background-color: rgba(214, 40, 40, 0.95);
+  background-color: rgba(26, 26, 26, 0.7);
   margin: 20px 10vw;
   padding: 20px;
 }
@@ -640,6 +679,8 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+  bottom: 0;
 }
 
 .banner p,
@@ -650,7 +691,7 @@ nav {
 
 .banner p {
   font-size: 1em;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-family: "Lato", sans-serif;
   font-weight: 200;
 }
@@ -698,12 +739,9 @@ nav {
   }
 }
 
-main .wrapper {
-  margin: 0px 10px;
-}
-
 section {
   background-color: #003049;
+  margin: 0px 10px 10px 10px;
 }
 
 section .wrapper {
@@ -730,6 +768,7 @@ section h2 {
 
 section article {
   width: 100%;
+  color: #1a1a1a;
 }
 
 section article:nth-of-type(2n) .card {
@@ -802,7 +841,7 @@ section .card .btn {
   border: 1px solid #f77f00;
 }
 
-section .btn-brand {
+section .btn-prim {
   margin-top: 20px;
 }
 
@@ -845,7 +884,7 @@ section .btn-brand {
   margin: 10px 20px;
 }
 
-.full-width-container .btn-brand {
+.full-width-container .btn-prim {
   display: block;
   text-align: center;
 }
