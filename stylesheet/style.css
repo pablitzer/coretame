@@ -586,6 +586,9 @@ nav {
   0% {
     opacity: 0;
   }
+  40% {
+    opacity: 0.1;
+  }
   100% {
     opacity: 1;
   }
@@ -594,6 +597,9 @@ nav {
 @keyframes anim-fade {
   0% {
     opacity: 0;
+  }
+  40% {
+    opacity: 0.1;
   }
   100% {
     opacity: 1;
@@ -627,8 +633,8 @@ nav {
 }
 
 .background.bi2.anim {
-  -webkit-animation: 1s ease-in-out 0s 1 running anim-fade;
-          animation: 1s ease-in-out 0s 1 running anim-fade;
+  -webkit-animation: 3s ease-in-out 0s 1 running anim-fade;
+          animation: 3s ease-in-out 0s 1 running anim-fade;
 }
 
 .banner {

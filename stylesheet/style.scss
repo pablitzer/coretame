@@ -363,6 +363,9 @@ nav {
   0% {
     opacity: 0;
   }
+  40% {
+    opacity: 0.1;
+  }
   100% {
     opacity: 1;
   }
@@ -390,7 +393,7 @@ nav {
   &.bi2 {
     background-image: url(/res/img/cor8-gs.jpg);
     &.anim {
-      animation: 1s ease-in-out 0s 1 running anim-fade;
+      animation: 3s ease-in-out 0s 1 running anim-fade;
     }
   }
 }
