@@ -109,24 +109,41 @@ a {
   }
 }
 
-/*--------------- event data with icons */
+/*--------------- info data with icons */
 %icon-prop {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   width: 1.5em;
   display: inline-block;
+  flex-shrink: 0;
 }
-.evt-date,
-.evt-where {
+.info-email,
+.info-phone,
+.info-date,
+.info-schedule,
+.info-where {
   color: $col-sec;
 }
-.evt-date::before {
+.info-date::before {
   content: '\f133';
   @extend %icon-prop;
 }
 
-.evt-where::before {
+.info-where::before {
   content: '\f3c5';
+  @extend %icon-prop;
+}
+
+.info-schedule::before {
+  content: '\f017';
+  @extend %icon-prop;
+}
+.info-phone::before {
+  content: '\f879';
+  @extend %icon-prop;
+}
+.info-email::before {
+  content: '\f0e0';
   @extend %icon-prop;
 }
 
@@ -561,6 +578,46 @@ section {
   .btn-prim {
     margin-top: 20px;
   }
+
+  article:nth-of-type(2n) .text-block {
+    border-left: 20px solid $col-ter;
+  }
+  article:nth-of-type(2n + 1) .text-block {
+    border-left: 20px solid $col-sec;
+  }
+  .text-block {
+    margin: 20px 20px 0px 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: $col-light;
+    h3 {
+      font-size: 1.2em;
+      text-align: left;
+      color: $col-prim;
+      margin-bottom: 1em;
+    }
+    p {
+      font-size: 1em;
+      margin-bottom: 0.5em;
+    }
+    .btn {
+      width: 200px;
+      margin-bottom: 0.5em;
+    }
+    address {
+      margin-bottom: 0.5em;
+      margin-left: 20px;
+      display: flex;
+      flex-direction: column;
+
+      a,
+      p {
+        margin-bottom: 0.5em;
+        display: flex;
+      }
+    }
+  }
 }
 
 // for bigger screen : change card orientation
@@ -592,7 +649,10 @@ section {
     }
 
     article {
-      width: 50%;
+      &.bs-2-columns {
+        width: 50%;
+      }
+
       .card {
         min-height: 240px;
       }

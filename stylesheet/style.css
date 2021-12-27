@@ -263,25 +263,42 @@ a {
   color: #f3f3f3;
 }
 
-/*--------------- event data with icons */
-.evt-date::before, .evt-where::before {
+/*--------------- info data with icons */
+.info-date::before, .info-where::before, .info-schedule::before, .info-phone::before, .info-email::before {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   width: 1.5em;
   display: inline-block;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
-.evt-date,
-.evt-where {
+.info-email,
+.info-phone,
+.info-date,
+.info-schedule,
+.info-where {
   color: #f77f00;
 }
 
-.evt-date::before {
+.info-date::before {
   content: '\f133';
 }
 
-.evt-where::before {
+.info-where::before {
   content: '\f3c5';
+}
+
+.info-schedule::before {
+  content: '\f017';
+}
+
+.info-phone::before {
+  content: '\f879';
+}
+
+.info-email::before {
+  content: '\f0e0';
 }
 
 /*--------------- Layout Style --------------------------------------------------
@@ -851,6 +868,64 @@ section .btn-prim {
   margin-top: 20px;
 }
 
+section article:nth-of-type(2n) .text-block {
+  border-left: 20px solid #fcbf49;
+}
+
+section article:nth-of-type(2n + 1) .text-block {
+  border-left: 20px solid #f77f00;
+}
+
+section .text-block {
+  margin: 20px 20px 0px 20px;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #eae2b7;
+}
+
+section .text-block h3 {
+  font-size: 1.2em;
+  text-align: left;
+  color: #d62828;
+  margin-bottom: 1em;
+}
+
+section .text-block p {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+
+section .text-block .btn {
+  width: 200px;
+  margin-bottom: 0.5em;
+}
+
+section .text-block address {
+  margin-bottom: 0.5em;
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+section .text-block address a,
+section .text-block address p {
+  margin-bottom: 0.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 @media screen and (min-width: 680px) {
   section .card {
     -ms-grid-columns: 1fr 3fr;
@@ -877,7 +952,7 @@ section .btn-prim {
     width: 100%;
     margin: 20px 10px 0 10px;
   }
-  section article {
+  section article.bs-2-columns {
     width: 50%;
   }
   section article .card {
