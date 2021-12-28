@@ -147,6 +147,19 @@ a {
 ---------------------------------------------------------------------------------*/
 
 /*------------------------------------ Header */
+@keyframes rotate-45 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 header {
   display: flex;
   background-color: $col-dark;
@@ -165,7 +178,7 @@ header {
     }
     &:hover {
       img {
-        transform: rotate(45deg);
+        animation: 2s ease-out 0s 1 running rotate-45;
       }
     }
     figcaption {
@@ -408,6 +421,12 @@ nav {
       animation: 3s ease-in-out 0s 1 running anim-fade;
     }
   }
+  &.bi3 {
+    background-image: url(/res/img/cor10-gs.jpg);
+    &.anim {
+      animation: 3s ease-in-out 0s 1 running anim-fade;
+    }
+  }
 }
 
 .banner {
@@ -481,7 +500,7 @@ nav {
 @media screen and (min-width: $breakpoint-res) {
   // banner layout for large screens
   .banner {
-    height: 50vh;
+    height: 75vh;
     min-height: 400px;
 
     h1,
@@ -711,11 +730,41 @@ footer {
     align-self: center;
     li {
       text-align: left;
+      margin-top: 10px;
       &.centered {
         text-align: center;
       }
       i {
         color: $col-ter;
+      }
+    }
+  }
+  .totop {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    font-size: 35px;
+    padding: 10px;
+    color: $col-white;
+    background-color: rgba($col-dark, 0.3);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 5px;
+    transition: all 0.3s ease-in-out;
+    i {
+      transition: all 0.3s ease-in-out;
+    }
+    @media (hover: hover) {
+      &:hover {
+        background-color: $col-prim;
+        transform: scale(1.1);
+        i {
+          transform: translateY(-5px);
+        }
       }
     }
   }

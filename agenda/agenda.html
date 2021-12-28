@@ -17,11 +17,11 @@
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="stylesheet" href="/res/font/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="stylesheet/style.css" />
+    <link rel="stylesheet" href="/stylesheet/style.css" />
   </head>
   <body>
     <header>
-      <a href="#">
+      <a href="/">
         <figure class="logo" title="Retour à l'accueil">
           <img src="/res/icon/cor3-64.png" alt="Cors & Âmes - Accueil" />
           <figcaption>Cors&Âme</figcaption>
@@ -32,9 +32,9 @@
         <label for="toggle" class="btn-menu" title="afficher/cacher le menu général"><span></span></label>
         <div class="menu">
           <ul>
-            <li><a href="#" class="current" title="Retourner à la page d'acceuil">Accueil</a></li>
-            <li><a href="/association/qui-sommes-nous.html" title="Découvrir notre association">Qui sommes-nous?</a></li>
-            <li><a href="/agenda/agenda.html" title="Consulter notre agenda">Agenda</a></li>
+            <li><a href="/" title="Retourner à la page d'acceuil">Accueil</a></li>
+            <li><a href="/association/qui-sommes-nous.html" title="Découvrir notre association" >Qui sommes-nous?</a></li>
+            <li><a href="#" title="Consulter notre agenda" class="current">Agenda</a></li>
             <li><a href="#" title="Prendre contact avec nous">Contact</a></li>
           </ul>
         </div>
@@ -42,27 +42,25 @@
     </header>
     <main>
       <div class="banner">
-        <div class="background bi1 anim">
-        </div>
-          <div class="overlay wrapper">
-            <h1>Association Cors&nbsp;&&nbsp;Âmes</h1>
+        <div class="background bi3 anim"></div>
+        <div class="overlay wrapper">
+            <h1>Agenda</h1>
             <div class="text-container">
-              <p>J'aime écouter le son du cor, le soir, au fond des bois.</p>
-              <p>Vous aussi?</p>
-              <p>Alors, vous êtes au bon endroit!</p>
-              <div class="btn-container">
-                <a href="/association/qui-sommes-nous.html" class="btn-prim">En savoir plus...</a>
-              </div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium molestias, nesciunt eos repudiandae iste placeat illo aut dicta neque veritatis reiciendis laudantium delectus!
+              </p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In suscipit ad debitis facilis. Rem, assumenda illum?</p>
+              
             </div>
             <div class="slide-container">
               <i class="fas fa-angle-double-up slide"></i>
             </div>
-        </div>
+          </div>
       </div>
       <section>
         <div class="wrapper">
-          <h2>Notre Actualité</h2>
 
+          <h2>Janvier 2022</h2>
           <article class="bs-2-columns">
             <div class="card">
               <img src="/res/img/cor2-min.jpg" alt="Concerto de Mozart" />
@@ -83,6 +81,29 @@
               </div>
             </div>
           </article>
+          <article class="bs-2-columns">
+            <div class="card">
+              <img src="/res/img/assemblee.jpg" alt="Assemblée générale" />
+              <div class="info-block">
+                <h3>Janvier 2022 - Assemblée générale</h3>
+                <h4>Assemblée générale de l'association</h4>
+                <div class="info info-detail">
+                  <p class="info info-date">
+                    <time datetime="2022-01-28T20:00"
+                      >Vendredi 28 janvier 2022 à 20h00</time>
+                  </p>
+                  <p class="info info-where">
+                    <span>45, rue du Cor Etrange, 75009 Paris</span>
+                  </p>
+                  <a href="#" class="btn">Plus d'information...</a>
+                </div>
+              </div>
+            </div>
+          </article>
+         </div>
+         <div class="wrapper">
+
+          <h2>Mars 2022</h2>
           <article class="bs-2-columns">
             <div class="card">
               <img src="/res/img/cor3-min.jpg" alt="Traits d'orchestre" />
@@ -128,6 +149,10 @@
               </div>
             </div>
           </article>
+         </div>
+         <div class="wrapper">
+
+          <h2>Mai 2022</h2>
           <article class="bs-2-columns">
             <div class="card">
               <img src="/res/img/cor5-min.jpg" alt="Concert" />
@@ -149,40 +174,9 @@
               </div>
             </div>
           </article>
-          <div class="full-width-container">
-            <a href="/agenda/agenda.html" class="btn-prim">Retrouver tous nos événements...</a>
-          </div>
-
-          <article class="bs-2-columns">
-            <div class="card">
-              <img src="/res/img/cor7-min.jpg" alt="Article histoire du cor" />
-              <div class="info-block">
-                <h3>Article - Une brève histoire du cor</h3>
-                <h4>Des origines à l'époque moderne.</h4>
-                <div class="info info-detail">
-                  <a href="#" class="btn">Lire cet article</a>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="bs-2-columns">
-            <div class="card">
-              <img src="/res/img/cor6-min.jpg" alt="Anatomie du cor" />
-              <div class="info-block">
-                <h3>Article - Anatomie du cor</h3>
-                <h4>Présentation du cor d'harmonie moderne.</h4>
-                <div class="info info-detail">
-                  <a href="#" class="btn">Lire cet article</a>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <div class="full-width-container">
-            <a href="#" class="btn-prim">Retrouver tous nos articles...</a>
-          </div>
-        </div>
+         </div>
       </section>
+       
     </main>
     <footer>
       <div class="foot-head">
@@ -213,6 +207,6 @@
         </ul>
       </div>
       <a href="#" class="totop" title="retour en haut de page"><i class="fas fa-angle-up"></i></a>
-     </footer>
- </body>
+    </footer>
+  </body>
 </html>
