@@ -273,11 +273,7 @@ a {
       flex-shrink: 0;
 }
 
-.info-email,
-.info-phone,
-.info-date,
-.info-schedule,
-.info-where {
+.info {
   color: #f77f00;
 }
 
@@ -822,7 +818,7 @@ section .card img {
      object-position: 50% 50%;
 }
 
-section .card .info {
+section .card .info-block {
   padding: 10px;
 }
 
@@ -849,8 +845,11 @@ section .card h4 {
   text-align: center;
 }
 
-section .card p {
-  font-size: 0.8em;
+section .card .info {
+  font-size: 0.9em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 section .card .btn {
@@ -902,13 +901,13 @@ section .text-block p {
 }
 
 section .text-block .btn {
-  width: 200px;
+  width: 180px;
   margin-bottom: 0.5em;
 }
 
 section .text-block address {
   margin-bottom: 0.5em;
-  margin-left: 20px;
+  margin-left: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -918,12 +917,16 @@ section .text-block address {
           flex-direction: column;
 }
 
-section .text-block address a,
-section .text-block address p {
+section .text-block address .info {
   margin-bottom: 0.5em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-size: 0.9em;
+}
+
+section .text-block address .info::before {
+  color: #d62828;
 }
 
 @media screen and (min-width: 680px) {

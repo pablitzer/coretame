@@ -110,41 +110,37 @@ a {
 }
 
 /*--------------- info data with icons */
-%icon-prop {
+%info-icon {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   width: 1.5em;
   display: inline-block;
   flex-shrink: 0;
 }
-.info-email,
-.info-phone,
-.info-date,
-.info-schedule,
-.info-where {
+.info {
   color: $col-sec;
 }
 .info-date::before {
+  @extend %info-icon;
   content: '\f133';
-  @extend %icon-prop;
 }
 
 .info-where::before {
+  @extend %info-icon;
   content: '\f3c5';
-  @extend %icon-prop;
 }
 
 .info-schedule::before {
+  @extend %info-icon;
   content: '\f017';
-  @extend %icon-prop;
 }
 .info-phone::before {
+  @extend %info-icon;
   content: '\f879';
-  @extend %icon-prop;
 }
 .info-email::before {
+  @extend %info-icon;
   content: '\f0e0';
-  @extend %icon-prop;
 }
 
 /*--------------- Layout Style --------------------------------------------------
@@ -547,7 +543,7 @@ section {
       object-fit: cover;
       object-position: 50% 50%;
     }
-    .info {
+    .info-block {
       padding: 10px;
     }
     .info-detail {
@@ -565,8 +561,9 @@ section {
       margin-bottom: 10px;
       text-align: center;
     }
-    p {
-      font-size: 0.8em;
+    .info {
+      font-size: 0.9em;
+      display: flex;
     }
     .btn {
       align-self: center;
@@ -602,19 +599,22 @@ section {
       margin-bottom: 0.5em;
     }
     .btn {
-      width: 200px;
+      width: 180px;
       margin-bottom: 0.5em;
     }
     address {
       margin-bottom: 0.5em;
-      margin-left: 20px;
+      margin-left: 10px;
       display: flex;
       flex-direction: column;
 
-      a,
-      p {
+      .info {
         margin-bottom: 0.5em;
         display: flex;
+        font-size: 0.9em;
+      }
+      .info::before {
+        color: $col-prim;
       }
     }
   }
