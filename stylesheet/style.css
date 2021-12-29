@@ -318,6 +318,26 @@ a {
   content: '\f0e0';
 }
 
+.heart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.heart::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f004';
+  margin-right: 10px;
+  color: #d62828;
+}
+
 /*--------------- Layout Style --------------------------------------------------
 ---------------------------------------------------------------------------------*/
 /*------------------------------------ Header */

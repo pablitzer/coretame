@@ -89,14 +89,14 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .action::after {
-    font-family: 'Font Awesome 5 Free';
-    font-size: 1.5em;
-    font-weight: 900;
-    content: '\f105';
-    margin-left: 10px;
-    line-height: 1em;
+    &::after {
+      font-family: 'Font Awesome 5 Free';
+      font-size: 1.5em;
+      font-weight: 900;
+      content: '\f105';
+      margin-left: 10px;
+      line-height: 1em;
+    }
   }
 }
 .btn {
@@ -155,6 +155,19 @@ a {
 .info-email::before {
   @extend %info-icon;
   content: '\f0e0';
+}
+
+.heart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &::before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f004';
+    margin-right: 10px;
+    color: $col-prim;
+  }
 }
 
 /*--------------- Layout Style --------------------------------------------------
