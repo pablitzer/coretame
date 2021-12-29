@@ -267,9 +267,11 @@ a {
   color: #d62828;
 }
 
-.btn:hover {
-  color: #eae2b7;
-  background-color: #d62828;
+@media (hover: hover) {
+  .btn:hover {
+    color: #eae2b7;
+    background-color: #d62828;
+  }
 }
 
 .btn-prim {
@@ -278,10 +280,12 @@ a {
   color: silver;
 }
 
-.btn-prim:hover {
-  background-color: #f77f00;
-  border-color: #d62828;
-  color: #f3f3f3;
+@media (hover: hover) {
+  .btn-prim:hover {
+    background-color: #f77f00;
+    border-color: #d62828;
+    color: #f3f3f3;
+  }
 }
 
 /*--------------- info data with icons */
@@ -728,6 +732,15 @@ nav {
           animation: 3s ease-in-out 0s 1 running anim-fade;
 }
 
+.background.bi4 {
+  background-image: url(/res/img/cor11-gs.jpg);
+}
+
+.background.bi4.anim {
+  -webkit-animation: 3s ease-in-out 0s 1 running anim-fade;
+          animation: 3s ease-in-out 0s 1 running anim-fade;
+}
+
 .banner {
   color: #f3f3f3;
   overflow: hidden;
@@ -763,6 +776,68 @@ nav {
   margin: 20px 10vw;
   padding: 20px;
   z-index: 101;
+}
+
+.banner .form-container {
+  background-color: rgba(26, 26, 26, 0.7);
+  margin: 20px 10vw 10vh 10vw;
+  height: 60vh;
+  min-height: 400px;
+  max-width: 600px;
+  padding: 20px;
+  z-index: 101;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.banner .form-container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  height: 100%;
+}
+
+.banner .form-container label,
+.banner .form-container input,
+.banner .form-container textarea {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.banner .form-container input:not([type='submit']),
+.banner .form-container textarea {
+  padding: 5px;
+  border: 1px solid #1a1a1a;
+  background-color: #f3f3f3;
+}
+
+.banner .form-container input:not([type='submit']):hover,
+.banner .form-container textarea:hover {
+  border-color: #fcbf49;
+}
+
+.banner .form-container textarea {
+  resize: none;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.banner .form-container input[type='submit'] {
+  margin-top: 20px;
+  width: 100px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .banner .slide-container {
@@ -1181,6 +1256,10 @@ footer .col-main li.centered {
 }
 
 footer .col-main li i {
+  color: #fcbf49;
+}
+
+footer .col-main li:hover {
   color: #fcbf49;
 }
 

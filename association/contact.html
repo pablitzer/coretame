@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cors & âme - Association pour la promotion du cor</title>
+    <meta
+      name="description"
+      content="Cors et Âmes est une association ayant pour but la promotion du cor."
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" href="/res/font/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="/stylesheet/style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <figure class="logo" title="Retour à l'accueil">
+          <img src="/res/icon/cor3-64.png" alt="Cors & Âmes - Accueil" />
+          <figcaption>Cors&Âme</figcaption>
+        </figure>
+      </a>
+      <nav>
+        <input type="checkbox" name="toggle" id="toggle" class="toggle" />
+        <label for="toggle" class="btn-menu" title="afficher/cacher le menu général"><span></span></label>
+        <div class="menu">
+          <ul>
+            <li><a href="/" title="Retourner à la page d'acceuil">Accueil</a></li>
+            <li><a href="/association/qui-sommes-nous.hlml" title="Découvrir notre association" >Qui sommes-nous?</a></li>
+            <li><a href="/agenda/agenda.html" title="Consulter notre agenda">Agenda</a></li>
+            <li><a href="#" title="Prendre contact avec nous" class="current">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="banner">
+        <div class="background bi4 anim"></div>
+        <div class="overlay wrapper">
+            <h1>Nous contacter</h1>
+            <div class="form-container">
+              <form method="post">
+                <label for="email">Votre e-mail</label>
+                <input type="email" name="email" id="email" required><br>
+                <label for="message">Votre message</label>
+                <textarea name="message" id="message" required></textarea><br>
+                <div>
+                <input type="checkbox" name="authorize" id="authorizes">
+                <label for="authorize" class="inline-label">J'authorise Cors&Âme à utiliser les données de ce formulaire pour traiter ma demande</label>
+                </div>
+                <input type="submit" class="btn-prim" action="contact-us.php">
+
+              </form>
+            </div>
+            
+          </div>
+      </div>
+        
+    </main>
+    <footer>
+      <div class="foot-head">
+        <p>
+          © 2021 <span class="highlight">Cors&Âme</span> - Association pour la
+          promotion du cor
+        </p>
+      </div>
+      <div class="foot-column">
+        <div class="col-title highlight">
+          <p>Retrouver nous sur :</p>
+        </div>
+        <ul class="col-main">
+          <li><a href="#"><i class="fab fa-facebook"></i></> Facebook</a></li>
+          <li><a href="#"></a><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="#"></a><i class="fab fa-youtube"></i> YouTube</a></li>
+        </ul>
+      </div>
+      <div class="foot-column">
+        <div class="col-title highlight">
+          <p>Informations</p>
+        </div>
+        <ul class="col-main">
+          <li class="centered"><a href="#">Politique de confidentialité</a></li>
+          <li class="centered"><a href="#">Mentions légales</a></li>
+          <li class="centered"><a href="/association/qui-sommes-nous.html#informations-pratiques">Informations pratiques</a></li>
+          <li class="centered"><a href="/association/contact.html">Nous contacter</a></li>
+        </ul>
+      </div>
+      <a href="#" class="totop" title="retour en haut de page"><i class="fas fa-angle-up"></i></a>
+    </footer>
+  </body>
+</html>
