@@ -80,10 +80,24 @@ a {
 
 %btn-common {
   display: inline-block;
-  padding: 8px 15px;
+  padding: 5px 15px;
   border-radius: 2px;
   margin-bottom: 5px;
   border: 1px solid $col-prim;
+
+  .action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .action::after {
+    font-family: 'Font Awesome 5 Free';
+    font-size: 1.5em;
+    font-weight: 900;
+    content: '\f105';
+    margin-left: 10px;
+    line-height: 1em;
+  }
 }
 .btn {
   @extend %btn-common;
@@ -103,7 +117,7 @@ a {
   color: darken($col-white, 20);
 
   &:hover {
-    background-color: transparent;
+    background-color: $col-sec;
     border-color: $col-prim;
     color: $col-white;
   }
@@ -618,7 +632,7 @@ section {
       margin-bottom: 0.5em;
     }
     .btn {
-      width: 180px;
+      align-self: flex-start;
       margin-bottom: 0.5em;
     }
     address {
@@ -635,6 +649,42 @@ section {
       .info::before {
         color: $col-prim;
       }
+    }
+  }
+}
+.video-block {
+  margin: 20px 20px 0px 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $col-light;
+
+  h3 {
+    font-size: 1em;
+    text-align: center;
+  }
+  h4 {
+    font-size: 1em;
+    font-weight: 200;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  iframe {
+    flex-grow: 1;
+    min-height: 200px;
+  }
+  .video {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+    iframe {
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      position: absolute;
     }
   }
 }

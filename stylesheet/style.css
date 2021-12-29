@@ -234,10 +234,31 @@ a {
 
 .btn, .btn-prim {
   display: inline-block;
-  padding: 8px 15px;
+  padding: 5px 15px;
   border-radius: 2px;
   margin-bottom: 5px;
   border: 1px solid #d62828;
+}
+
+.btn .action, .btn-prim .action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.btn .action::after, .btn-prim .action::after {
+  font-family: 'Font Awesome 5 Free';
+  font-size: 1.5em;
+  font-weight: 900;
+  content: '\f105';
+  margin-left: 10px;
+  line-height: 1em;
 }
 
 .btn {
@@ -258,7 +279,7 @@ a {
 }
 
 .btn-prim:hover {
-  background-color: transparent;
+  background-color: #f77f00;
   border-color: #d62828;
   color: #f3f3f3;
 }
@@ -939,7 +960,8 @@ section .text-block p {
 }
 
 section .text-block .btn {
-  width: 180px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   margin-bottom: 0.5em;
 }
 
@@ -965,6 +987,56 @@ section .text-block address .info {
 
 section .text-block address .info::before {
   color: #d62828;
+}
+
+.video-block {
+  margin: 20px 20px 0px 20px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #eae2b7;
+}
+
+.video-block h3 {
+  font-size: 1em;
+  text-align: center;
+}
+
+.video-block h4 {
+  font-size: 1em;
+  font-weight: 200;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.video-block iframe {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  min-height: 200px;
+}
+
+.video-block .video {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.video-block .video iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 @media screen and (min-width: 680px) {
