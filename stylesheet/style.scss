@@ -556,10 +556,10 @@ section {
     color: $col-black;
   }
 
-  article:nth-of-type(2n) .card {
+  article:nth-of-type(2n) .up-line {
     border-top: 20px solid $col-ter;
   }
-  article:nth-of-type(2n + 1) .card {
+  article:nth-of-type(2n + 1) .up-line {
     border-top: 20px solid $col-sec;
   }
 
@@ -609,10 +609,10 @@ section {
     margin-top: 20px;
   }
 
-  article:nth-of-type(2n) .text-block {
+  article:nth-of-type(2n) .left-line {
     border-left: 20px solid $col-ter;
   }
-  article:nth-of-type(2n + 1) .text-block {
+  article:nth-of-type(2n + 1) .left-line {
     border-left: 20px solid $col-sec;
   }
   .text-block {
@@ -654,7 +654,7 @@ section {
 }
 .video-block {
   margin: 20px 20px 0px 20px;
-  padding: 10px;
+  padding: 10px 20px 20px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -670,10 +670,7 @@ section {
     margin-bottom: 10px;
     text-align: center;
   }
-  iframe {
-    flex-grow: 1;
-    min-height: 200px;
-  }
+
   .video {
     overflow: hidden;
     padding-bottom: 56.25%;
@@ -686,6 +683,10 @@ section {
       width: 100%;
       position: absolute;
     }
+  }
+  .mw-center {
+    width: 90%;
+    align-self: center;
   }
 }
 
@@ -707,6 +708,12 @@ section {
         text-align: left;
       }
     }
+    .video-block {
+      .mw-center {
+        width: 80%;
+        align-self: center;
+      }
+    }
   }
 }
 // for biggest screen : diplay two cards per line
@@ -724,6 +731,12 @@ section {
 
       .card {
         min-height: 240px;
+      }
+      .video-block {
+        .mw-center {
+          width: 60%;
+          align-self: center;
+        }
       }
     }
   }
