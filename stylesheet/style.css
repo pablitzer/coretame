@@ -232,6 +232,15 @@ a {
   color: inherit;
 }
 
+.overlay {
+  position: absolute;
+  background-color: rgba(26, 26, 26, 0.25);
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
 .btn, .btn-prim {
   display: inline-block;
   padding: 5px 15px;
@@ -596,13 +605,13 @@ nav {
     opacity: 0;
   }
   50% {
-    -webkit-transform: translateY(-30px);
-            transform: translateY(-30px);
+    -webkit-transform: translateY(-10vh);
+            transform: translateY(-10vh);
     opacity: 0.5;
   }
   80% {
-    -webkit-transform: translateY(-30px);
-            transform: translateY(-30px);
+    -webkit-transform: translateY(-10vh);
+            transform: translateY(-10vh);
     opacity: 0;
   }
   100% {
@@ -619,13 +628,13 @@ nav {
     opacity: 0;
   }
   50% {
-    -webkit-transform: translateY(-30px);
-            transform: translateY(-30px);
+    -webkit-transform: translateY(-10vh);
+            transform: translateY(-10vh);
     opacity: 0.5;
   }
   80% {
-    -webkit-transform: translateY(-30px);
-            transform: translateY(-30px);
+    -webkit-transform: translateY(-10vh);
+            transform: translateY(-10vh);
     opacity: 0;
   }
   100% {
@@ -636,14 +645,17 @@ nav {
 }
 
 .slide {
-  font-size: 4em;
   color: #f3f3f3;
   opacity: 0;
-  display: inline-block;
-  position: absolute;
-  top: -10vh;
   -webkit-animation: 4s ease 3s 6 running slide-up;
           animation: 4s ease 3s 6 running slide-up;
+}
+
+.slide::before {
+  font-size: 4em;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
 }
 
 @-webkit-keyframes anim-background {
@@ -754,10 +766,6 @@ nav {
   height: initial;
 }
 
-.banner .overlay {
-  background-color: rgba(26, 26, 26, 0.25);
-}
-
 .banner .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -776,7 +784,7 @@ nav {
   background-color: rgba(26, 26, 26, 0.7);
   margin: 20px 10vw;
   padding: 20px;
-  z-index: 101;
+  z-index: 120;
 }
 
 .banner .form-container {
@@ -853,15 +861,17 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
-  z-index: 100;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: 110;
 }
 
 .banner p,
 .banner h1 {
   text-shadow: #000 0 0 30px;
   text-align: center;
-  z-index: 101;
+  z-index: 120;
 }
 
 .banner p {

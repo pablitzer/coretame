@@ -78,6 +78,15 @@ a {
   color: inherit;
 }
 
+.overlay {
+  position: absolute;
+  background-color: rgba($col-black, 0.25);
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
 %btn-common {
   display: inline-block;
   padding: 5px 15px;
@@ -380,12 +389,12 @@ nav {
   }
 
   50% {
-    transform: translateY(-30px);
+    transform: translateY(-10vh);
     opacity: 0.5;
   }
 
   80% {
-    transform: translateY(-30px);
+    transform: translateY(-10vh);
     opacity: 0;
   }
   100% {
@@ -395,13 +404,15 @@ nav {
 }
 
 .slide {
-  font-size: 4em;
   color: $col-white;
   opacity: 0;
-  display: inline-block;
-  position: absolute;
-  top: -10vh;
   animation: 4s ease 3s 6 running slide-up;
+  &::before {
+    font-size: 4em;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f102';
+  }
 }
 
 // Background animation effect
@@ -479,10 +490,6 @@ nav {
     height: initial;
   }
 
-  // opacify image container
-  .overlay {
-    background-color: rgba($col-black, 0.25);
-  }
   // banner content
   .wrapper {
     display: flex;
@@ -496,7 +503,7 @@ nav {
     background-color: rgba($col-black, 0.7);
     margin: 20px 10vw;
     padding: 20px;
-    z-index: 101;
+    z-index: 120;
   }
 
   // form integrated in banner
@@ -551,14 +558,17 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    z-index: 100;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+
+    z-index: 110;
   }
   p,
   h1 {
     text-shadow: #000 0 0 30px;
     text-align: center;
-    z-index: 101;
+    z-index: 120;
   }
 
   p {
