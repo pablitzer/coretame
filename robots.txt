@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /res/
+Disallow: /stylesheet/
+
+Sitemap: http://www.mon-domaine.fr/sitemap.xml

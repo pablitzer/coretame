@@ -473,6 +473,12 @@ nav {
       animation: 3s ease-in-out 0s 1 running anim-fade;
     }
   }
+  &.bi5 {
+    background-image: url(/res/img/cor12-gs.jpg);
+    &.anim {
+      animation: 3s ease-in-out 0s 1 running anim-fade;
+    }
+  }
 }
 
 .banner {

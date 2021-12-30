@@ -753,6 +753,15 @@ nav {
           animation: 3s ease-in-out 0s 1 running anim-fade;
 }
 
+.background.bi5 {
+  background-image: url(/res/img/cor12-gs.jpg);
+}
+
+.background.bi5.anim {
+  -webkit-animation: 3s ease-in-out 0s 1 running anim-fade;
+          animation: 3s ease-in-out 0s 1 running anim-fade;
+}
+
 .banner {
   color: #f3f3f3;
   overflow: hidden;
