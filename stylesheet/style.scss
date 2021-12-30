@@ -658,6 +658,7 @@ section {
     grid-template-columns: 1fr;
     grid-template-rows: 200px 2fr;
     background-color: $col-light;
+    min-height: 220px;
 
     img {
       width: 100%;

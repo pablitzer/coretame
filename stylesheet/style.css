@@ -982,6 +982,7 @@ section .card {
   -ms-grid-rows: 200px 2fr;
       grid-template-rows: 200px 2fr;
   background-color: #eae2b7;
+  min-height: 220px;
 }
 
 section .card img {
