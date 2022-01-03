@@ -1192,7 +1192,7 @@ section .text-block address .info::before {
     width: 50%;
   }
   section article .card {
-    min-height: 240px;
+    min-height: 300px;
   }
   section article .video-block .mw-center {
     width: 60%;
