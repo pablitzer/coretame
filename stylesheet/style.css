@@ -1191,6 +1191,9 @@ section .text-block address .info::before {
   section article.bs-2-columns {
     width: 50%;
   }
+  section article.bs-2-columns img {
+    max-height: 300px;
+  }
   section article .card {
     min-height: 300px;
   }

@@ -817,6 +817,9 @@ section {
     article {
       &.bs-2-columns {
         width: 50%;
+        img {
+          max-height: 300px;
+        }
       }
 
       .card {
